@@ -65,7 +65,7 @@
           <!--navigation bar  -->
           <nav role="navigation">
             <ul class="nav-links">
-              <li><router-link to="/">Accueil</router-link></li>
+              <!-- <li><router-link to="/"><i class="fas fa-home"></i></router-link></li> -->
               <li><router-link to="/boutique">Boutique </router-link></li>
               <li><router-link to="/galerie">Galerie</router-link></li>
               <li><router-link to="/tarifs">Tarifs</router-link></li>
