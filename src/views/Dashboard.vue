@@ -71,6 +71,7 @@
                   type="password"
                   class="input"
                   name="oldPassword"
+                  
                 />
               </div>
               <div class="flex-label">
@@ -105,6 +106,9 @@ export default {
       const userInfos = this.$store.getters["user/current"]; // récupère l'user connecté depuis le store/user
       return userInfos; // retourne les infos, desormais accessible dans le component sous le nom currentUser
     },
+    // methode: {
+
+    // }
   },
 };
 </script>

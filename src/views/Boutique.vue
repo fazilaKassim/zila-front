@@ -91,6 +91,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+::selection {
+  color: white;
+  background-color: var(--gld);
+}
 //boutique menu
 #boutique-bg {
   background: url("../assets/img/flower.jpg");
@@ -100,17 +104,16 @@ export default {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  padding:5px 0 3px 0;
+  padding: 5px 0 3px 0;
   // margin: 20px;
 }
 
 .boutique {
-
   // height: 100vh;
   // background: white;
   margin: auto;
   margin: 100px;
-//   padding: 10px;
+  //   padding: 10px;
   width: 80%;
   // height: 100vh;
   background: white;
@@ -118,7 +121,7 @@ export default {
   // padding: 20px 10px 0 10px;
 }
 section.sous-menu {
-  width:90%;
+  width: 90%;
   // height: 300px;
   display: flex;
   flex-direction: row;
@@ -151,7 +154,7 @@ figure {
 }
 figcaption {
   color: white;
-  font-size: 14px;
+
   width: 100%;
   text-align: center;
   position: relative;
@@ -168,5 +171,39 @@ figcaption {
 
 .boutique-content {
   margin-top: 20px;
+}
+
+@media screen and( max-width: 1000px ) {
+  .boutique {
+    width: 90%;
+    margin: 100px;
+    margin: auto;
+    background: white;
+  }
+  section.sous-menu {
+  width: 100%;
+  // height: 300px;
+  display: flex;
+  flex-direction: row;
+  // flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+
+  margin: 50px auto 0 auto;
+
+}
+  figure img {
+    width: 150px;
+    height: 150px;
+  }
+  figure {
+  height:150px;
+}
+figcaption {
+
+  font-size: 14px;
+
+
+}
 }
 </style>

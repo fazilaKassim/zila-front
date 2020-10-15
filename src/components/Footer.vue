@@ -45,7 +45,7 @@ export default {};
 <style>
 footer {
   width: 100%;
-min-height: 200px;
+  min-height: 200px;
 }
 #footer {
   width: 100%;
@@ -61,6 +61,7 @@ min-height: 200px;
   justify-content: center;
   align-items: center;
   width: 100%;
+
 }
 h2 {
   color: rgb(200, 156, 98);
@@ -68,8 +69,10 @@ h2 {
   font-family: "Bellota", cursive;
   margin: 15px;
 }
-article.footer{
-  width: 25%;
+article.footer {
+  flex: 1;
+  min-width: 350px;
+  height: auto;
 }
 
 /* logo */
@@ -81,7 +84,6 @@ article.footer-logo {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-
 }
 
 .footer-logo {
@@ -99,10 +101,10 @@ article.footer-info,
   align-items: center;
 }
 
-/* section menu */
+/* section menu
 article.footer-menu {
-  /* grid-area: 1 / 3 / 2 / 4; */
-}
+  grid-area: 1 / 3 / 2 / 4;
+} */
 
 /* section reseau sociaux */
 article.footer-rs {
@@ -118,5 +120,16 @@ article.footer a {
 .rs-logo {
   width: 60px;
   margin: 10px;
+}
+
+@media screen and (max-width:600px ) {
+  .footer-logo{
+    display: none;
+  }
+  .form {
+    width: 95%;
+    margin: 0;
+    min-width: 400px;
+  }
 }
 </style>

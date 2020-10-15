@@ -31,7 +31,7 @@
         </article>
         <article class="total">
           <h3>Récapitulatif de la commande</h3>
-          <p>Sous total <span class="subtotal">25€</span></p>
+          <!-- <p>Sous total <span class="subtotal">  {{ total +=  produitPanier.quantite * produitPanier.prix}}</span></p> -->
           <p>Livraison <span class="subtotal">25€</span></p>
           <hr />
           <p class="total">
@@ -69,6 +69,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+::selection {
+  color:white ;
+  background-color: var(--gld);
+} 
 #panier-bg {
   background: url("../assets/img/flower.jpg");
   height: auto;

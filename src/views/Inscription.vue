@@ -332,14 +332,20 @@ textarea {
   border: 1px solid rgb(136, 101, 48);
   margin: auto;
   outline: 0;
+    cursor: pointer;
 }
 
 .btn-rdv {
   display: flex;
   justify-content: center;
   align-items: center;
+
 }
 
+.btn-rdv:hover {
+ 
+  cursor: pointer;
+}
 @media screen and( max-width: 679px ) {
   .form {
     width: 100%;

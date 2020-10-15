@@ -1,10 +1,11 @@
 import Vue from "vue";
+import "./axios.config";
 import App from "./App.vue";
 import router from "./router";
 import VueAgile from 'vue-agile'
 import store from "./store";
-import VueGallery from 'vue-gallery'
-// import "./axios.config";
+import VueGallery from 'vue-gallery';
+
 
 Vue.use(VueAgile)
 Vue.use(VueGallery)

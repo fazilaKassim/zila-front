@@ -22,7 +22,7 @@
           <h2>Menu Boutique</h2>
           <ul class="menu">
             <li class="menu">
-              <a href="/cone">
+              <a href="/boutique/henne" target="blank">
                 <figure>
                   <img src="../assets/img/cone.jpeg" alt="" class="menu" />
                   <figcaption>Henné</figcaption>
@@ -30,7 +30,7 @@
               </a>
             </li>
             <li class="menu">
-              <a href="/objets">
+              <a href="/boutique/objets"  target="blank">
                 <figure>
                   <img src="../assets/img/cadre.jpg" alt="" class="menu" />
                   <figcaption>Objets personnalisé</figcaption>
@@ -38,7 +38,7 @@
               </a>
             </li>
             <li class="menu">
-              <a href="/Lettre">
+              <a href="/boutique/lettre"  target="blank">
                 <figure>
                   <img src="../assets/img/bougie.jpeg" alt="" class="menu" />
                   <figcaption>Lettre Fleurie</figcaption>
@@ -46,7 +46,7 @@
               </a>
             </li>
             <li class="menu">
-              <a href="/bouquet">
+              <a href="/boutique/bouquet"  target="blank">
                 <figure>
                   <img src="../assets/img/bouquet.jpg" alt="" class="menu" />
                   <figcaption>Bouquet</figcaption>
@@ -223,12 +223,17 @@ background: linear-gradient(90deg,rgba(200,156,98,1)  0%,  rgb(221, 183, 132)30%
 :root {
   --gld: rgb(200, 156, 98);
 }
+::selection {
+  color: var(--gld);
+  background-color: black;
+} 
 body {
   overflow-x: hidden;
-  // width: 100%;
+  width: 100%;
   min-width: 480px;
   max-width: 100%;
 }
+
 
 .row {
   margin: 0;
@@ -466,6 +471,7 @@ section#description{
     // height: 300px;
     padding: 50px;
     font-size: 20px;
+    
     color: white;
     display: flex;
     flex-direction: row;
@@ -478,6 +484,7 @@ section#description{
 section#description article{
   width: 40%;
   margin: auto;
+  min-width: 400px;
 }
 
 /* livraison  */

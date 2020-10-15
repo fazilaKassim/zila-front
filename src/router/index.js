@@ -15,11 +15,13 @@ import NotFound from "../views/NotFound.vue";
 // import Lettre from "../views/Lettre.vue";
 // import Bouquet from "../views/Bouquet.vue";
 import Dashboard from "../views/Dashboard.vue";
-import Commande from "../views/Commande.vue"
-import ProduitsParCategories from '../views/ProduitsParCategories.vue'
-import ProduitDetail from '../views/ProduitDetail'
-import Produit from '../views/Produit'
-import Panier from '../views/Panier'
+import Commande from "../views/Commande.vue";
+import ProduitsParCategories from "../views/ProduitsParCategories.vue";
+import ProduitDetail from "../views/ProduitDetail";
+import Produit from "../views/Produit";
+import Panier from "../views/Panier";
+
+import auth from "@/auth/";
 Vue.use(VueRouter);
 
 const routes = [
@@ -40,18 +42,24 @@ const routes = [
         name: "ProduitsParCategories",
         component: ProduitsParCategories,
       },
-      {
-        path: ":idProduit/produitDetail",
-        name: "ProduitDetail",
-        component: ProduitDetail,
-      }
-    ]
+      // {
+      //   path: ":idProduit/produitDetail",
+      //   name: "ProduitDetail",
+      //   component: ProduitDetail,
+      // },
+    ],
+  },
+
+  {
+    path: "produitDetail",
+    name: "ProduitDetail",
+    component: ProduitDetail,
   },
   {
     path: "/galerie",
     name: "Galerie",
     component: Galerie,
-    props : true
+    props: true,
   },
 
   {
@@ -69,34 +77,27 @@ const routes = [
   {
     path: "/connexion",
     name: "Connexion",
+    beforeEnter: (to, from, next) => {
+      // on vérifie l'état de connexion
+      if (auth.getLocalAuthToken()) next("/dashboard");
+      // un utilisateur déjà connecté sera redirigé vers le dashboard...
+      else next("/foo");
+    },
     component: Connexion,
   },
-  // {
-  //   path: "/cone",
-  //   name: "Cone",
-  //   component: Cone,
-  // },
-  // {
-  //   path: "/objets",
-  //   name: "Objets",
-  //   component: Objets,
-  // },
-  // ,
-  // {
-  //   path: "/lettre",
-  //   name: "Lettre",
-  //   component: Lettre,
-  // },
-  // ,
-  // {
-  //   path: "/bouquet",
-  //   name: "Bouquet",
-  //   component: Bouquet,
-  // },
+
   {
     path: "/inscription",
     name: "Inscription",
-    component: Inscription,
+    beforeEnter: (to, from, next) => {
+      // on vérifie l'état de connexion:
+      if (auth.getLocalAuthToken()) next("/dashboard");
+      // un utilisateur déjà connecté sera redirigé vers le dashboard...
+      else next();
+    },
+
+    component: () =>
+      import(/* webpackChunkName: "signin" */ "../views/Inscription.vue")
   },
   {
     path: "/mentionlegal",
@@ -111,29 +112,35 @@ const routes = [
   {
     path: "*",
     name: "404",
-    component: NotFound
+    component: NotFound,
   },
+
   {
     path: "/dashboard",
     name: "Dashboard",
-    component: Dashboard
+    beforeEnter: (to, from, next) => {
+      // on vérifie l'état de connexion:
+      if (!auth.getLocalAuthToken()) next("/signin");
+      // un utilisateur non connecté sera redirigé vers le signin...
+      else next();
+    },
+    component: Dashboard,
   },
   {
     path: "/commande",
     name: "Commande",
-    component: Commande
+    component: Commande,
   },
   {
     path: "/Produit",
     name: "Produit",
-    component: Produit
+    component: Produit,
   },
   {
     path: "/Panier",
     name: "Panier",
-    component: Panier
-  }
-  
+    component: Panier,
+  },
 ];
 
 const router = new VueRouter({

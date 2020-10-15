@@ -4,7 +4,12 @@
       <div class="grid-container">
         <!-- <IconBurger /> -->
         <div class="search">
-          <input type="search" name="search" id="search" placeholder="search" />
+          <input
+            type="search"
+            name="search"
+            id="search"
+            placeholder="Dans la boutique "
+          />
           <!--input search -->
 
           <router-link to="#">
@@ -25,7 +30,7 @@
           <!-- icon connexion et panier -->
           <ul class="icon two">
             <li>
-              <router-link to="Connexion">
+              <router-link to="/connexion">
                 <!-- v-if="!isSignedIn" -->
                 <img
                   src="../assets/img/profillogo.png"
@@ -44,7 +49,7 @@
               <!-- panier -->
             </li>
             <li>
-              <router-link to="Panier">
+              <router-link to="/panier">
                 <img
                   src="../assets/img/panier.png"
                   alt=""
@@ -64,7 +69,7 @@
               <li><router-link to="/boutique">Boutique </router-link></li>
               <li><router-link to="/galerie">Galerie</router-link></li>
               <li><router-link to="/tarifs">Tarifs</router-link></li>
-              <li><router-link to="/rendezVous">Rendez-vous</router-link></li>
+              <li><router-link to="/rendezVous">Reserver</router-link></li>
               <!-- <li><router-link to="/test/hehe">Test</router-link></li> -->
             </ul>
           </nav>
@@ -223,6 +228,9 @@ header {
   margin: auto;
   height: auto;
   text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #logo {
@@ -231,6 +239,9 @@ header {
   font-size: 36px;
   font-weight: 700;
   color: white;
+    display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 // icon connexion
@@ -275,8 +286,8 @@ hr {
 }
 
 nav {
-    // height: 50px;
-  width: 50%;
+  // height: 50px;
+  width: 60%;
   margin: auto;
   height: auto;
 }
@@ -288,7 +299,7 @@ ul.nav-links {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  flex-wrap: wrap;
+  // flex-wrap: wrap
   align-items: center;
   color: white;
 }
@@ -317,7 +328,7 @@ ul.nav-links a:hover {
   text-decoration: none;
 }
 
-@media screen and( max-width: 866px ) {
+@media screen and( max-width: 1000px ) {
   div.search {
     display: none;
   }

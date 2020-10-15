@@ -81,7 +81,7 @@
         />
         <label for="personne" class="form__label">Nombre de personne</label>
       </div>
-
+<!-- 
       <div class="form__group field">
         <label for="date" class="form__label">Date souhiatée</label>
         <input
@@ -95,7 +95,7 @@
           min="2020-10-02T00:00"
           max="2023-12-31T00:00"
         />
-      </div>
+      </div> -->
 
       <div class="form__group field">
         <textarea
@@ -155,6 +155,10 @@ p {
   color: black;
   font-family: "Times New Roman", Times, serif;
 }
+::selection {
+  color:white ;
+  background-color: var(--gld);
+} 
 #rdv {
   background: url("../assets/img/flower-background.jpg");
   height: auto;

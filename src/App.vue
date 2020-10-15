@@ -1,41 +1,32 @@
-
 <template>
   <div id="app">
     <Header />
-         <main id="main-content">
-  
+    <main id="main-content">
       <router-view />
     </main>
     <Footer />
-    
   </div>
 </template>
 
 <script>
-
-import Footer from "../src/components/Footer"
-import Header from "../src/components/Header"
+import Footer from "../src/components/Footer";
+import Header from "../src/components/Header";
 import auth from "@/auth";
 export default {
   beforeCreate() {
     const currentUser = this.$store.getters["user/current"];
     const token = auth.getLocalAuthToken();
-
+console.log(token, currentUser);
     if (token && !currentUser) {
       // console.log("TOKEN OF LOCAL STORAGE : ", token)
       this.$store.dispatch("user/getUserByToken");
     }
   },
-  components : {
+  components: {
     Footer,
-    Header
+    Header,
   },
-
-
-
-}
+};
 </script>
 
-<style lang="scss">
-
-</style>
+<style lang="scss"></style>

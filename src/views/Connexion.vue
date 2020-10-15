@@ -8,10 +8,10 @@
       <input
         class="input input-connection"
         type="email"
-  autocomplete="email"
+        autocomplete="email"
         placeholder="Email"
-      aria-describedby="emailHelp"
-          v-model="user.email"
+        aria-describedby="emailHelp"
+        v-model="user.email"
         required
       />
 
@@ -21,32 +21,38 @@
         id="input-password"
         class="input input-connection"
         :type="visibility"
-      autocomplete="password"
+        autocomplete="password"
         placeholder="Mot de passe"
-       v-model="user.password"
+        v-model="user.password"
         required
       />
 
-
-<a @click="showPassword()" v-if="visibility == 'password'"><i class="fas fa-eye-slash"></i></a>
-<a @click="hidePassword()" v-if="visibility == 'text'"><i class="fas fa-eye"></i> </a>
+      <a @click="showPassword()" v-if="visibility == 'password'"
+        ><i class="fas fa-eye-slash"></i
+      ></a>
+      <a @click="hidePassword()" v-if="visibility == 'text'"
+        ><i class="fas fa-eye"></i>
+      </a>
 
       <button @click.prevent="signin()" type="submit" class="btn">ok</button>
       <hr />
-    <p class="linkInscription">
-      Vous n'avez pas encore de compte ? 
-      <router-link to="/inscription" class="lienInscription">Inscrivez-vous</router-link>
-    </p>
+      <p class="linkInscription">
+        Vous n'avez pas encore de compte ?
+        <router-link to="/inscription" class="lienInscription"
+          >Inscrivez-vous</router-link
+        >
+      </p>
     </form>
   </div>
 </template>
 
 <script>
 import axios from "axios";
+name: "Connexion";
 export default {
   data() {
     return {
-      visibility: 'password',
+      visibility: "password",
       user: {
         email: "midou@mail.com",
         password: "midou",
@@ -59,26 +65,30 @@ export default {
       this.$store
         .dispatch("user/signin", {
           email: this.user.email,
-          password: this.user.password
+          password: this.user.password,
         })
         .then(() => {
           this.$router.push("/dashboard");
         })
-        .catch(err => {
+        .catch((err) => {
           console.log(err.message);
         });
     },
-    showPassword(){
-      this.visibility = 'text';
+    showPassword() {
+      this.visibility = "text";
     },
-    hidePassword(){
-      this.visibility = 'password'
-    }
+    hidePassword() {
+      this.visibility = "password";
+    },
   },
 };
 </script>
 
 <style lang="scss" scoped>
+::selection {
+  color: white;
+  background-color: var(--gld);
+}
 .input-connection::placeholder {
   color: black;
 }
@@ -105,98 +115,113 @@ export default {
   }
 }
 
-
-h1{
+h1 {
   color: black;
   margin: 40px;
 }
 form.connexion {
-padding : 50px 0;
-    width: 50%;
-    // min-height:500px ;
-    height: auto;
-    margin: auto;
-    margin-top: 70px;
-    margin-bottom: 70px;
-    background: white;
-     font-family: "Bellota", cursive;
-     display: flex;
-     justify-content: center;
-     align-items: center;
-     flex-direction: column;
+  padding: 50px 0;
+  width: 50%;
+  // min-height:500px ;
+  height: auto;
+  margin: auto;
+  margin-top: 70px;
+  margin-bottom: 70px;
+  background: white;
+  font-family: "Bellota", cursive;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
-input{
-    font-family: inherit;
-    width: 50%;
-    border: 0;
-    border-bottom: 2px solid rgb(200, 156, 98);
-    margin-bottom: 15px;
-    outline: 0;
-    font-size:18px;
+input {
+  font-family: inherit;
+  width: 50%;
+  border: 0;
+  border-bottom: 2px solid rgb(200, 156, 98);
+  margin-bottom: 15px;
+  outline: 0;
+  font-size: 18px;
+  color: black;
+  padding: 7px 0;
+  background: transparent;
+  transition: border-color 0.2s;
+
+  &::placeholder {
     color: black;
-    padding: 7px 0;
-    background: transparent;
-    transition: border-color 0.2s;
-
-    &::placeholder {
-      color: black
-    }
-
-    &:placeholder-shown~label {
-      font-size: 15px;
-      cursor: text;
-      top: 20px;
-    }
   }
 
+  &:placeholder-shown ~ label {
+    font-size: 15px;
+    cursor: text;
+    top: 20px;
+  }
+}
+
 label {
+  position: absolute;
+  // top: 0;
+  display: block;
+  transition: 0.2s;
+  font-size: 1rem;
+  // color:gray;
+}
+
+input:focus {
+  ~ slabel {
     position: absolute;
-    // top: 0;
+    top: 0;
     display: block;
     transition: 0.2s;
     font-size: 1rem;
-    // color:gray;
-  }
-
-  input:focus {
-    ~slabel {
-      position: absolute;
-      top: 0;
-      display: block;
-      transition: 0.2s;
-      font-size: 1rem;
-      color:#cc6b11;
-      font-weight: 700;
-    }
-
-    padding-bottom: 6px;
+    color: #cc6b11;
     font-weight: 700;
-    border-width: 3px;
-    border-image: linear-gradient(to right, #be8509, #e7d3b9);
-    border-image-slice: 1;
-  }
- .btn{
-      width: 200px;
-      height: 30px;
-      border-radius: 5px;
-      color: white;
-      background:rgb(155, 111, 46);
-      border: 1px solid rgb(136, 101, 48) ;
-      margin: 15px;
-      outline: 0;
-    }
-    hr{
-      margin-top: 50px;
-    }
-  
-  .linkInscription {
-    padding: 50px;
   }
 
-.lienInscription{
+  padding-bottom: 6px;
+  font-weight: 700;
+  border-width: 3px;
+  border-image: linear-gradient(to right, #be8509, #e7d3b9);
+  border-image-slice: 1;
+}
+.btn {
+  width: 200px;
+  height: 30px;
+  border-radius: 5px;
+  color: white;
+  background: rgb(155, 111, 46);
+  border: 1px solid rgb(136, 101, 48);
+  margin: 15px;
+  outline: 0;
+  cursor: pointer;
+}
+hr {
+  margin-top: 50px;
+}
+
+.linkInscription {
+  padding: 50px;
+}
+
+.lienInscription {
   color: var(--gld);
 }
-.lienInscription:hover{
+.lienInscription:hover {
   color: rgb(167, 122, 10);
+}
+
+// @media screen and (min-width: 768px ) and (max-width:1024px ) {
+//   .form {
+//     width: 90%;
+//     margin: 0;
+//     min-width: 400px;
+//   }
+// }
+@media screen and (max-width: 1024px) {
+  .form {
+    width: 95%;
+    margin: 0;
+    min-width: 400px;
+  }
 }
 </style>
