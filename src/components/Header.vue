@@ -299,7 +299,7 @@ ul.nav-links {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  // flex-wrap: wrap
+  flex-wrap: wrap;
   align-items: center;
   color: white;
 }

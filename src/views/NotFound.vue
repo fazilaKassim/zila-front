@@ -49,4 +49,11 @@ a {
   color: var(--gld);
 
 }
+@media screen and (max-width: 768px) {
+  #content-found {
+    width: 100%;
+
+  }
+  
+}
 </style>

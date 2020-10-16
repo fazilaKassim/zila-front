@@ -900,7 +900,7 @@ p {
 .sf-wrap div.sf-mdl-right-full h3 {
   top: 15px;
 }
-@media screen and( max-width: 550px ) {
+@media screen and (max-width: 768px) {
   section#tarifs {
   width: 100%;
 }

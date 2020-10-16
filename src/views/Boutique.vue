@@ -173,9 +173,9 @@ figcaption {
   margin-top: 20px;
 }
 
-@media screen and( max-width: 1000px ) {
+@media screen and (max-width: 768px) {
   .boutique {
-    width: 90%;
+    width: 100%;
     margin: 100px;
     margin: auto;
     background: white;

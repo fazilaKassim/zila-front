@@ -84,10 +84,10 @@ export default {
   padding: 70px;
 }
 #panier {
-  width: 70%;
+  width: 80%;
   background: white;
   margin: auto;
-  height: 80vh;
+
 }
 h1 {
   color: black;
@@ -100,6 +100,7 @@ h1 {
   flex-wrap: wrap;
   justify-content: center;
   width: 100%;
+  flex: 1;
   // align-items: center;
 }
 
@@ -107,6 +108,8 @@ h1 {
 article.produit {
   width: 60%;
   padding: 20px;
+  min-width: 200px;
+
 }
 table {
   width: 100%;
@@ -148,6 +151,8 @@ article.total {
   width: 40%;
   font-family: "georgia", cursive;
   padding: 0 50px 50px;
+  min-width: 100px;
+  flex:1
 }
 h3 {
   padding: 10px;
@@ -182,5 +187,23 @@ hr {
   height: 1px;
   color: var(--gld);
   background: var(--gld);
+}
+@media screen and (max-width: 768px) {
+  #panier-bg {
+    padding: 30px 0;
+  }
+  #panier {
+    width: 100%;
+
+  }
+  section.prod-panier{
+    width: 100%;
+  }
+  article.produit{
+    width: 100%;
+  }
+  article.total{
+    width: 70%;
+  }
 }
 </style>

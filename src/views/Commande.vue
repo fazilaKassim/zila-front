@@ -35,5 +35,11 @@ h1{
     padding: 40px;
 
 }
+@media screen and (max-width: 768px) {
+  #mention {
+    width: 100%;
 
+  }
+  
+}
 </style>

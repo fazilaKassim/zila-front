@@ -217,11 +217,11 @@ hr {
 //     min-width: 400px;
 //   }
 // }
-@media screen and (max-width: 1024px) {
-  .form {
-    width: 95%;
-    margin: 0;
-    min-width: 400px;
+@media screen and (max-width: 768px) {
+.connexion {
+    width: 100%;
+
   }
+  
 }
 </style>

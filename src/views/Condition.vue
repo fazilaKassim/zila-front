@@ -43,4 +43,11 @@ h1 {
   text-align: center;
   padding: 40px;
 }
+@media screen and (max-width: 768px) {
+  #condition  {
+    width: 100%;
+
+  }
+  
+}
 </style>

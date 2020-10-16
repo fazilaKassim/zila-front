@@ -346,7 +346,7 @@ textarea {
  
   cursor: pointer;
 }
-@media screen and( max-width: 679px ) {
+@media screen and (max-width: 768px) {
   .form {
     width: 100%;
     margin: 0;

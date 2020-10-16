@@ -105,7 +105,7 @@ article.images {
   border: thick double rgb(200, 156, 98);
   transition: transform 0.2s;
 }
-@media screen and( max-width: 550px ) {
+@media screen and (max-width: 768px) {
   section#galerie {
   width: 100%;
 }

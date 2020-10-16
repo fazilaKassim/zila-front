@@ -278,11 +278,12 @@ textarea {
   align-items: center;
 }
 
-@media screen and( max-width: 679px ) {
+@media screen and (max-width: 768px) {
   .form {
     width: 100%;
     margin: 0;
     min-width: 380px;
   }
+  
 }
 </style>

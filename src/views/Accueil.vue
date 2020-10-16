@@ -525,6 +525,5 @@ ul.livraisons li figure {
   align-items: center;
 }
 
-@media screen and( max-width: 679px ) {
-}
+
 </style>

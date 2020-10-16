@@ -225,4 +225,11 @@ div.produit:hover figure {
   height: 250px;
   filter: brightness(65%);
 }
+@media screen and (max-width: 768px) {
+.products{
+    width: 100%;
+
+  }
+  
+}
 </style>

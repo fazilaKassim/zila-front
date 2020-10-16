@@ -130,4 +130,11 @@ div.social{
   justify-content: space-around;
 
 }
+@media screen and (max-width: 768px) {
+  #produit-detail {
+    width: 100%;
+
+  }
+  
+}
 </style>

@@ -69,4 +69,11 @@ export default {
   background: white;
   margin: auto;
 }
+@media screen and (max-width: 768px) {
+   .produit-detail{
+    width: 100%;
+
+  }
+  
+}
 </style>
