@@ -1,40 +1,7 @@
 <template>
   <div id="boutique-bg">
     <section class="boutique boutique-menu">
-      <!-- <section class="sous-menu">
-        <article class="menu">
-          <a href="/cone"
-            ><figure class="menu">
-              <img class="img-menu" src="../assets/img/cone.jpeg" alt="" />
-              <figcaption class="menu">Henné</figcaption>
-            </figure></a
-          >
-        </article>
-        <article class="menu">
-          <a href="/objets"
-            ><figure class="menu">
-              <img class="img-menu" src="../assets/img/cadre.jpg" alt="" />
-              <figcaption class="menu">Objets personnalisé</figcaption>
-            </figure></a
-          >
-        </article>
-        <article class="menu">
-          <a href="/lettre"
-            ><figure class="menu">
-              <img class="img-menu" src="../assets/img/cadre.jpg" alt="" />
-              <figcaption class="menu">Lettre fleurie</figcaption>
-            </figure></a
-          >
-        </article>
-        <article class="menu">
-          <a href="/bouquet"
-            ><figure class="menu">
-              <img class="img-menu" src="../assets/img/bouquet.jpg" alt="" />
-              <figcaption class="menu">Bouquet</figcaption>
-            </figure></a
-          >
-        </article>
-      </section> -->
+
     </section>
     <section class="boutique-content boutique">
       <h1>Cone</h1>
@@ -45,10 +12,10 @@
             <img src="../assets/img/cadre.jpg" alt="" class="img-produit" />
             <figcaption>lot de 3 cones</figcaption>
             <p>10€</p>
-            <button class="btn">
+            <button class="btn" >
               Acheter <i class="fas fa-cart-plus"></i>
             </button>
-            <button class="btn btn2">
+            <button class="btn btn2 flex">
               Decouvrir <i class="fas fa-feather-alt"></i>
             </button>
           </figure>
@@ -59,16 +26,21 @@
 </template>
 
 <script>
+
 export default {
   computed: {
     cone() {
       return this.$store.state.produit.filter((produit) => categorie.cone);
     },
   },
+  
+
+
 };
 </script>
 
 <style lang="scss" scoped>
+@import '~vuejs-noty/dist/vuejs-noty.css';
 //boutique menu
 #boutique-bg {
   background: url("../assets/img/flower.jpg");

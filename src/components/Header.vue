@@ -30,10 +30,19 @@
           <!-- icon connexion et panier -->
           <ul class="icon two">
             <li>
-              <router-link to="/connexion">
+              <router-link v-if="!isSignedIn" to="/connexion">
                 <!-- v-if="!isSignedIn" -->
                 <img
                   src="../assets/img/profillogo.png"
+                  alt=""
+                  class="icon flex-vertical"
+              /></router-link>
+            </li>
+              <li>
+              <router-link to="/connexion" v-if="isSignedIn">
+                <!-- v-if="!isSignedIn" -->
+                <img  @click="signout" 
+                  src="../assets/img/deconnexion.png"
                   alt=""
                   class="icon flex-vertical"
               /></router-link>
@@ -94,48 +103,30 @@
 import vue from "vue";
 import auth from "@/auth";
 import { Slide } from "vue-burger-menu";
-// import IconBurger from "@/components/IconBurger"
+
+
 
 export default {
-  // el: "#app",
+
   data() {
     return {
-      // limitPosition: 500,
-      // scrolled: false,
-      // lastPosition: 0,
+  
       auth,
       isActive: false,
     };
   },
-  //   computed: {
-  //   isSignedIn() {
-  //     return Boolean(this.$store.getters["user/current"]);
-  //   },
-  // methods: {
-  //   handleScroll() {
-  //     if (
-  //       this.lastPosition < window.scrollY &&
-  //       this.limitPosition < window.scrollY
-  //     ) {
-  //       this.scrolled = true;
-  //       // move up!
-  //     }
-
-  //     if (this.lastPosition > window.scrollY) {
-  //       this.scrolled = false;
-  //       // move down
-  //     }
-
-  //     this.lastPosition = window.scrollY;
-  //     // this.scrolled = window.scrollY > 250;
-  //   },
-  // },
-  // created() {
-  //   window.addEventListener("scroll", this.handleScroll);
-  // },
-  // destroyed() {
-  //   window.removeEventListener("scroll", this.handleScroll);
-  // },
+   methods: {
+    signout() {
+      auth.signout(this); //  on passe l'instance de vue à la fonction de déconnection
+    }
+  },
+  
+computed: {
+    isSignedIn() {
+      return Boolean(this.$store.getters["user/current"]);
+    },
+  },
+  
 
   components: {
     Slide, // Register your component

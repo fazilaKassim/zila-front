@@ -17,6 +17,7 @@
     "vue-carousel-3d": "^1.0.1",
     "vue-gallery": "^2.0.1",
     "vue-router": "^3.4.4",
+    "vue-snotify": "^3.2.1",
     "vue-socialmedia-share": "^1.0.1",
     "vuex": "^3.5.1"
   },

@@ -20,6 +20,8 @@ import ProduitsParCategories from "../views/ProduitsParCategories.vue";
 import ProduitDetail from "../views/ProduitDetail";
 import Produit from "../views/Produit";
 import Panier from "../views/Panier";
+import Paiement from "../views/Paiement";
+import Admin from "../views/Admin";
 
 import auth from "@/auth/";
 Vue.use(VueRouter);
@@ -51,7 +53,7 @@ const routes = [
   },
 
   {
-    path: "produitDetail",
+    path: "/produitDetail",
     name: "ProduitDetail",
     component: ProduitDetail,
   },
@@ -81,7 +83,7 @@ const routes = [
       // on vérifie l'état de connexion
       if (auth.getLocalAuthToken()) next("/dashboard");
       // un utilisateur déjà connecté sera redirigé vers le dashboard...
-      else next("/foo");
+      else next();
     },
     component: Connexion,
   },
@@ -96,8 +98,7 @@ const routes = [
       else next();
     },
 
-    component: () =>
-      import(/* webpackChunkName: "signin" */ "../views/Inscription.vue")
+    component: Inscription,
   },
   {
     path: "/mentionlegal",
@@ -132,14 +133,24 @@ const routes = [
     component: Commande,
   },
   {
-    path: "/Produit",
+    path: "/produit",
     name: "Produit",
     component: Produit,
   },
   {
-    path: "/Panier",
+    path: "/panier",
     name: "Panier",
     component: Panier,
+  },
+  {
+    path: "/paiement",
+    name: "Paiement",
+    component: Paiement,
+  },
+  {
+    path: "/admin",
+    name: "Admin",
+    component: Admin,
   },
 ];
 

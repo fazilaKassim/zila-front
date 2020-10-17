@@ -3,9 +3,9 @@
     <section id="dash" v-if="currentUser">
       <h1>Bonjour {{ currentUser.prenom }}</h1>
       <hr />
-      <button>
+      <!-- <button class="btn">
         <router-link to="/commande" class="commande">Mes commandes</router-link>
-      </button>
+      </button> -->
       <h2 class="title">Mon profil</h2>
       <article class="info-user">
         <p><strong> Nom :</strong> {{ currentUser.nom }}</p>

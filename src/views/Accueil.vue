@@ -65,9 +65,9 @@
               <li>Déplacement possible en Ile-de-France</li>
               <li>Nous utilisons des produit de haute qualité 100% naturel</li>
               <li>
-                <button class="reserver">
-                  <router-link to="/rendezVous">Reservez</router-link>
-                </button>
+               
+                  <router-link to="/rendezVous"> <button class="reserver">Reservez</button></router-link>
+                
               </li>
             </ul>
           </article>
@@ -87,29 +87,35 @@
               <img src="../assets/img/henne/6.jpg" alt="" />
             </slide>
             <slide :index="2">
-              <img src="../assets/img/henne/1.jpg" alt="" />
+              <img src="../assets/img/henne/15.jpg" alt="" />
             </slide>
             <slide :index="3">
-              <img src="../assets/img/henne/6.jpg" alt="" />
+              <img src="../assets/img/henne/23.jpg" alt="" />
             </slide>
             <slide :index="4">
-              <img src="../assets/img/henne/1.jpg" alt="" />
+              <img src="../assets/img/henne/50.jpg" alt="" />
             </slide>
             <slide :index="5">
-              <img src="../assets/img/henne/6.jpg" alt="" />
+              <img src="../assets/img/henne/52.jpg" alt="" />
             </slide>
             <slide :index="6">
-              <img src="../assets/img/henne/1.jpg" alt="" />
+              <img src="../assets/img/henne/51.jpg" alt="" />
             </slide>
             <slide :index="7">
-              <img src="../assets/img/henne/6.jpg" alt="" />
+              <img src="../assets/img/henne/53.jpg" alt="" />
             </slide>
-            <slide :index="8">
-              <img src="../assets/img/henne/1.jpg" alt="" />
+            <!-- <slide :index="8">
+              <img src="../assets/img/henne/55.JPG" alt="" />
+            </slide> -->
+            <!-- <slide :index="9">
+              <img src="../assets/img/henne/58.jpg" alt="" />
             </slide>
-            <slide :index="9">
-              <img src="../assets/img/henne/6.jpg" alt="" />
+                <slide :index="10">
+              <img src="../assets/img/henne/59.jpg" alt="" />
             </slide>
+            <slide :index="11">
+              <img src="../assets/img/henne/61.jpg" alt="" />
+            </slide> -->
           </carousel-3d>
         </section>
 
@@ -234,7 +240,13 @@ body {
   max-width: 100%;
 }
 
-
+.flex{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  
+}
 .row {
   margin: 0;
   padding: 0;

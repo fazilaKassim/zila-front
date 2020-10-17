@@ -5,8 +5,11 @@ import router from "./router";
 import VueAgile from 'vue-agile'
 import store from "./store";
 import VueGallery from 'vue-gallery';
+import Snotify from 'vue-snotify';
 
 
+//component
+Vue.use(Snotify)
 Vue.use(VueAgile)
 Vue.use(VueGallery)
 Vue.prototype.$ebus = new Vue();

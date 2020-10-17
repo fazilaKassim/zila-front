@@ -17,8 +17,12 @@ mutations : {
 
   addProduitPanier(state, produit){
     const panierClone = [...state.panier];
-    const isProduitAlreadyExist = panierClone.find(panierProduit => panierProduit.idProduit == produit._id)
-
+    console.log(produit.idProduit)
+    console.log(produit._id)
+    
+    const isProduitAlreadyExist = panierClone.find(panierProduit => panierProduit.idProduit == produit.idProduit)
+    console.log(panierProduit)
+    console.log(isProduitAlreadyExist)
     if (isProduitAlreadyExist == undefined)
       panierClone.push(produit)
     else{

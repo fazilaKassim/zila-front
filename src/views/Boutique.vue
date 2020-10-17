@@ -104,15 +104,16 @@ export default {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  padding: 5px 0 3px 0;
+  padding: 50px 0 50px 0;
   // margin: 20px;
+
 }
 
 .boutique {
   // height: 100vh;
   // background: white;
   margin: auto;
-  margin: 100px;
+  // margin: 100px;
   //   padding: 10px;
   width: 80%;
   // height: 100vh;

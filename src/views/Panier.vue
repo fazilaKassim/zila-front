@@ -13,17 +13,31 @@
                 <th></th>
               </tr>
             </thead>
-            <tbody id="content-table"> 
-              <tr v-for="(produitPanier, i) in getPanier" :key="i"> <!-- Vfor <<<<<< -->
+            <tbody id="content-table">
+              <tr v-for="(produitPanier, i) in getPanier" :key="i">
+                <!-- Vfor <<<<<< -->
                 <td class="prod-img">
                   <img src="../assets/img/cadre.jpg" alt="" class="cart-prod" />
                 </td>
                 <td class="prod-quantité">
-                  <input type="number" min="1" max="99"  :value="produitPanier.quantite"/> <!--  v-on:change="lolo" -->
+                  <input
+                    type="number"
+                    min="1"
+                    max="99"
+                    :value="produitPanier.quantite"
+                  />
+                  <!--  v-on:change="lolo" -->
                 </td>
-                <td class="prod-prix">{{produitPanier.prix}}</td>
-                
-                <td> <button  @click="supprimerProduitPanier(produitPanier.idProduit)" >supprimer </button></td>
+                <td class="prod-prix">{{ produitPanier.prix }}</td>
+
+                <td>
+                  <button class="btn-suppr"
+                    @click="supprimerProduitPanier(produitPanier.idProduit)"
+                  >
+                  <i  class="fas fa-trash-alt"></i>
+                    <!-- supprimer -->
+                  </button>
+                </td>
                 <!-- <td> <a ><i  class="fas fa-trash-alt"></i></a></td> -->
               </tr>
             </tbody>
@@ -32,14 +46,26 @@
         <article class="total">
           <h3>Récapitulatif de la commande</h3>
           <!-- <p>Sous total <span class="subtotal">  {{ total +=  produitPanier.quantite * produitPanier.prix}}</span></p> -->
-          <p>Livraison <span class="subtotal">25€</span></p>
+          <p>
+            Livraison
+            <!-- <span class="subtotal">
+              Les frais de livraison sont estimés en fonction du montant de
+              votre panier et de l'option de livraison la plus favorable. Vous
+              pourrez choisir votre mode de livraison lors de la prochaine étape
+            </span> -->
+          </p>
           <hr />
-          <p class="total">
-            TOTAL <span class="subtotal"><strong>25€</strong> </span>
+          <p class="total" v-for="(produitPanier, i) in getPanier" :key="i">
+            TOTAL
+            <span class="subtotal"
+              ><strong>{{ produitPanier.prix }}</strong>
+            </span>
           </p>
 
-
-          <button id="confirm-command" class="btn">Passer la commande</button>
+          
+        
+                  <router-link to="/paiement"><button id="confirm-command" class="btn flex">Passer la commande     </button></router-link>
+           
         </article>
       </section>
     </section>
@@ -48,31 +74,30 @@
 
 <script>
 export default {
-
-  created(){
-    console.log("LULULULULULUL")
+  created() {
+    console.log("LULULULULULUL");
   },
 
-  methods : {
-    supprimerProduitPanier(idProduit){
-      console.log("SUPPRESSION product")
-      this.$store.dispatch('produit/supprimerProduit', idProduit)
-    }
+  methods: {
+    supprimerProduitPanier(idProduit) {
+      console.log("SUPPRESSION product");
+      this.$store.dispatch("produit/supprimerProduit", idProduit);
+    },
   },
 
-  computed : {
-    getPanier(){
-      return this.$store.getters["produit/getPanier"]
-    }
-  }
+  computed: {
+    getPanier() {
+      return this.$store.getters["produit/getPanier"];
+    },
+  },
 };
 </script>
 
 <style lang="scss" scoped>
 ::selection {
-  color:white ;
+  color: white;
   background-color: var(--gld);
-} 
+}
 #panier-bg {
   background: url("../assets/img/flower.jpg");
   height: auto;
@@ -87,7 +112,6 @@ export default {
   width: 80%;
   background: white;
   margin: auto;
-
 }
 h1 {
   color: black;
@@ -109,7 +133,6 @@ article.produit {
   width: 60%;
   padding: 20px;
   min-width: 200px;
-
 }
 table {
   width: 100%;
@@ -148,11 +171,11 @@ td {
 //total
 
 article.total {
-  width: 40%;
+  width: 30%;
   font-family: "georgia", cursive;
   padding: 0 50px 50px;
   min-width: 100px;
-  flex:1
+  flex: 1;
 }
 h3 {
   padding: 10px;
@@ -171,6 +194,9 @@ article.total hr {
   height: 2px;
 }
 
+a{
+  color: white;
+}
 button#confirm-command {
   width: 80%;
   height: 40px;
@@ -180,6 +206,9 @@ button#confirm-command {
   border: none;
   background: var(--gld);
   color: white;
+  outline: 0;
+  text-align: center;
+  cursor: pointer;
 }
 
 hr {
@@ -188,21 +217,25 @@ hr {
   color: var(--gld);
   background: var(--gld);
 }
+.btn-suppr{
+  border: none;
+  outline: 0;
+  cursor: pointer;
+}
 @media screen and (max-width: 768px) {
   #panier-bg {
     padding: 30px 0;
   }
   #panier {
     width: 100%;
-
   }
-  section.prod-panier{
+  section.prod-panier {
     width: 100%;
   }
-  article.produit{
+  article.produit {
     width: 100%;
   }
-  article.total{
+  article.total {
     width: 70%;
   }
 }
