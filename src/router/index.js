@@ -17,13 +17,14 @@ import NotFound from "../views/NotFound.vue";
 import Dashboard from "../views/Dashboard.vue";
 import Commande from "../views/Commande.vue";
 import ProduitsParCategories from "../views/ProduitsParCategories.vue";
-import ProduitDetail from "../views/ProduitDetail";
-import Produit from "../views/Produit";
-import Panier from "../views/Panier";
-import Paiement from "../views/Paiement";
-import Admin from "../views/Admin";
-
+import ProduitDetail from "../views/ProduitDetail.vue";
+import Produit from "../views/Produit.vue";
+import Panier from "../views/Panier.vue";
+import Paiement from "../views/Paiement.vue";
+import Admin from "../views/Admin.vue";
+// import ValidationRdv from "../views/ValidationRdv.vue";
 import auth from "@/auth/";
+import OkValide from "../views/OkValide.vue";
 Vue.use(VueRouter);
 
 const routes = [
@@ -52,11 +53,11 @@ const routes = [
     ],
   },
 
-  {
-    path: "/produitDetail",
-    name: "ProduitDetail",
-    component: ProduitDetail,
-  },
+  // {
+  //   path: "/produitDetail",
+  //   name: "ProduitDetail",
+  //   component: ProduitDetail,
+  // },
   {
     path: "/galerie",
     name: "Galerie",
@@ -75,7 +76,11 @@ const routes = [
     name: "RendezVous",
     component: RendezVous,
   },
-
+  // {
+  //   path: "/ValidationRdv",
+  //   name: "ValidationRdv",
+  //   component: ValidationRdv,
+  // },
   {
     path: "/connexion",
     name: "Connexion",
@@ -151,6 +156,11 @@ const routes = [
     path: "/admin",
     name: "Admin",
     component: Admin,
+  },
+  {
+    path: "/okValide",
+    name: "OkValide",
+    component: OkValide,
   },
 ];
 

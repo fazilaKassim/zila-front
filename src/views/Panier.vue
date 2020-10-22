@@ -21,9 +21,8 @@
                 </td>
                 <td class="prod-quantité">
                   <input
-                    type="number"
-                    min="1"
-                    max="99"
+                    @change="changeQuantite(produitPanier)"
+                    type="text"
                     :value="produitPanier.quantite"
                   />
                   <!--  v-on:change="lolo" -->
@@ -31,10 +30,11 @@
                 <td class="prod-prix">{{ produitPanier.prix }}</td>
 
                 <td>
-                  <button class="btn-suppr"
+                  <button
+                    class="btn-suppr"
                     @click="supprimerProduitPanier(produitPanier.idProduit)"
                   >
-                  <i  class="fas fa-trash-alt"></i>
+                    <i class="fas fa-trash-alt"></i>
                     <!-- supprimer -->
                   </button>
                 </td>
@@ -45,27 +45,32 @@
         </article>
         <article class="total">
           <h3>Récapitulatif de la commande</h3>
+
+          <p>
+            Sous-total
+            <span class="subtotal">
+              {{ getTotal }}
+            </span>
+          </p>
           <!-- <p>Sous total <span class="subtotal">  {{ total +=  produitPanier.quantite * produitPanier.prix}}</span></p> -->
           <p>
             Livraison
-            <!-- <span class="subtotal">
-              Les frais de livraison sont estimés en fonction du montant de
-              votre panier et de l'option de livraison la plus favorable. Vous
-              pourrez choisir votre mode de livraison lors de la prochaine étape
-            </span> -->
-          </p>
-          <hr />
-          <p class="total" v-for="(produitPanier, i) in getPanier" :key="i">
-            TOTAL
-            <span class="subtotal"
-              ><strong>{{ produitPanier.prix }}</strong>
+            <span class="subtotal">
+              0
             </span>
           </p>
-
-          
-        
-                  <router-link to="/paiement"><button id="confirm-command" class="btn flex">Passer la commande     </button></router-link>
-           
+          <hr />
+          <p class="total">
+            TOTAL
+            <span class="subtotal"
+              ><strong>{{ getTotal }}</strong>
+            </span>
+          </p>
+          <router-link to="/paiement"
+            ><button id="confirm-command" class="btn flex">
+              Passer la commande
+            </button></router-link
+          >
         </article>
       </section>
     </section>
@@ -74,6 +79,12 @@
 
 <script>
 export default {
+  data() {
+    return {
+      quantiteData: 0,
+    };
+  },
+
   created() {
     console.log("LULULULULULUL");
   },
@@ -83,11 +94,26 @@ export default {
       console.log("SUPPRESSION product");
       this.$store.dispatch("produit/supprimerProduit", idProduit);
     },
+
+    changeQuantite(produit) {
+      produit.quantite += 1;
+      this.$store.dispatch("produit/changeQuantite", produit);
+      // console.log("lolololololo", produit);
+    },
   },
 
   computed: {
     getPanier() {
       return this.$store.getters["produit/getPanier"];
+    },
+
+    getTotal() {
+      var total = 0;
+      // const lala =
+      this.$store.getters["produit/getPanier"].forEach(
+        (produit) => (total += parseInt(produit.prix))
+      );
+      return total;
     },
   },
 };
@@ -194,7 +220,7 @@ article.total hr {
   height: 2px;
 }
 
-a{
+a {
   color: white;
 }
 button#confirm-command {
@@ -217,7 +243,7 @@ hr {
   color: var(--gld);
   background: var(--gld);
 }
-.btn-suppr{
+.btn-suppr {
   border: none;
   outline: 0;
   cursor: pointer;

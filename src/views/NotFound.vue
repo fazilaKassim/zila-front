@@ -7,7 +7,9 @@
       <h2>Cette page est introuvable !!</h2>
       <p>
         La page que vous tentez d'afficher n'existe pas ou une autre erreur
-        s'est produite. <br /></p> <p>
+        s'est produite. <br />
+      </p>
+      <p>
         Vous pouvez revenir à la page précédente ou aller à la
         <router-link to="/"> page d'accueil</router-link>.
       </p>
@@ -47,13 +49,10 @@ h1 {
 }
 a {
   color: var(--gld);
-
 }
 @media screen and (max-width: 768px) {
   #content-found {
     width: 100%;
-
   }
-  
 }
 </style>

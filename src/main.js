@@ -2,16 +2,13 @@ import Vue from "vue";
 import "./axios.config";
 import App from "./App.vue";
 import router from "./router";
-import VueAgile from 'vue-agile'
+import VueAgile from "vue-agile";
 import store from "./store";
-import VueGallery from 'vue-gallery';
-import Snotify from 'vue-snotify';
-
+import VueGallery from "vue-gallery";
 
 //component
-Vue.use(Snotify)
-Vue.use(VueAgile)
-Vue.use(VueGallery)
+Vue.use(VueAgile);
+Vue.use(VueGallery);
 Vue.prototype.$ebus = new Vue();
 
 // event bus ($ebus) : https://www.digitalocean.com/community/tutorials/vuejs-global-event-bus
@@ -22,5 +19,5 @@ Vue.config.productionTip = false;
 new Vue({
   router,
   store,
-  render: h => h(App)
+  render: (h) => h(App),
 }).$mount("#app");

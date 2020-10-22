@@ -21,18 +21,18 @@ mutations : {
     console.log(produit._id)
     
     const isProduitAlreadyExist = panierClone.find(panierProduit => panierProduit.idProduit == produit.idProduit)
-    console.log(panierProduit)
-    console.log(isProduitAlreadyExist)
+    console.log("ancien produit : " , isProduitAlreadyExist, " new : ", produit)
+    // console.log(isProduitAlreadyExist)
     if (isProduitAlreadyExist == undefined)
       panierClone.push(produit)
     else{
+
       isProduitAlreadyExist.quantite += 1;
-      panierClone.push(isProduitAlreadyExist);
+      isProduitAlreadyExist.prix = isProduitAlreadyExist.quantite * isProduitAlreadyExist.prix
+      // panierClone.push(isProduitAlreadyExist);
     }
-     
-    
+    // panierClone.push(produit)
     state.panier = panierClone;
-    console.log(state.panier)
   },
 
   deleteProduitPanier(state, idProduit){
@@ -43,6 +43,17 @@ mutations : {
     const newPanier = panierClone.filter(produitPanier => produitASupprimer.idProduit != produitPanier.idProduit)
     // panierClone.remove(produitASupprimer)
     state.panier = newPanier;
+  },
+
+  setProduit(state, produitAmodifier){
+    const panierClone = [...state.panier];
+    panierClone.forEach(produit => {
+      if (produitAmodifier.idProduit === produit.idProduit){
+        produit = produitAmodifier
+      }
+    })
+
+    state.panier = panierClone;
   }
 },
 
@@ -84,22 +95,6 @@ actions : {
 
   },
 
-  // signin(context, userInfos) {
-  //   return new Promise((resolve, reject) => {
-  //     handler
-  //       .post("/users/connexion", userInfos)
-  //       .then(res => {
-  //         auth.setLocalAuthToken(res.data.token);
-  //         context.commit("setCurrent", res.data.user);
-  //         resolve(res);
-  //       })
-  //       .catch(err => {
-  //         auth.deleteLocalAuthToken();
-  //         context.commit("setCurrent", null);
-  //         reject(err);
-  //       });
-  //   });
-  // },
 
   ajouterProduit(context, produit){
 
@@ -111,6 +106,10 @@ actions : {
 
     // console.log("sote  :", produit)
     context.commit("deleteProduitPanier", idProduit);
+  },
+
+  changeQuantite(context, produit){
+    context.commit("setProduit", produit)
   }
 }
 

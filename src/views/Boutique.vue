@@ -51,7 +51,6 @@
           >
         </article>
       </section>
-      <!-- <router-link to="/cone">BLALBLZLFAEZ</router-link> -->
 
       <router-view :produitsParCateg="produitsParCateg"> </router-view>
     </section>
@@ -106,7 +105,6 @@ export default {
   background-size: cover;
   padding: 50px 0 50px 0;
   // margin: 20px;
-
 }
 
 .boutique {
@@ -182,29 +180,25 @@ figcaption {
     background: white;
   }
   section.sous-menu {
-  width: 100%;
-  // height: 300px;
-  display: flex;
-  flex-direction: row;
-  // flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
+    width: 100%;
+    // height: 300px;
+    display: flex;
+    flex-direction: row;
+    // flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
 
-  margin: 50px auto 0 auto;
-
-}
+    margin: 50px auto 0 auto;
+  }
   figure img {
     width: 150px;
     height: 150px;
   }
   figure {
-  height:150px;
-}
-figcaption {
-
-  font-size: 14px;
-
-
-}
+    height: 150px;
+  }
+  figcaption {
+    font-size: 14px;
+  }
 }
 </style>

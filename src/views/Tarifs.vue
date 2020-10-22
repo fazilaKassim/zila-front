@@ -5,7 +5,7 @@
       <section id="section-feature" class="container">
         <div class="row">
           <h2><i class="fas fa-hand-sparkles"></i>MAIN</h2>
-
+          <h3>FORFAIT GOLD (dessin simple et aéré)</h3>
           <ul>
             <div id="full">
               <li @click="toggle">
@@ -187,7 +187,7 @@
               </li>
               <p class="title">Bras entier</p>
             </div>
-
+            <h3>FORFAIT DIAMOND (dessin complexe et rempli)</h3>
             <div id="full">
               <li @click="toggle">
                 <div
@@ -214,7 +214,7 @@
                       ></a>
                     </p>
                   </div>
-
+                  <span></span>
                   <div class="sf-mdl-right-full">
                     <p>
                       Dessin complexe jusqu'au poignet
@@ -466,11 +466,11 @@
                   :class="toggleClass == true ? 'sf-wrap active' : 'sf-wrap'"
                 >
                   <div class="sf-mdl-left">
-                    <img src="../assets/img/tarif/pied.jpg" alt="" />
+                    <img src="../assets/img/tarif/pied2.jpeg" alt="" />
                   </div>
 
                   <div class="sf-mdl-right">
-                    <img src="../assets/img/tarif/pied.jpg" alt="" />
+                    <img src="../assets/img/tarif/pied2.jpeg" alt="" />
                   </div>
 
                   <div class="sf-mdl-left-full">
@@ -511,11 +511,11 @@
                   :class="toggleClass == true ? 'sf-wrap active' : 'sf-wrap'"
                 >
                   <div class="sf-mdl-left">
-                    <img src="../assets/img/tarif/OtoC.jpg" alt="" />
+                    <img src="../assets/img/tarif/pied.jpg" alt="" />
                   </div>
 
                   <div class="sf-mdl-right">
-                    <img src="../assets/img/tarif/OtoC.jpg" alt="" />
+                    <img src="../assets/img/tarif/pied.jpg" alt="" />
                   </div>
 
                   <div class="sf-mdl-left-full">
@@ -570,7 +570,7 @@
                       à partir de 200€
                       <br />
                       <br />
-                      -15% sur le total
+                      -5% sur le total de la marié
                       <br />
                       <br />
                       <a href="/rendezVous"
@@ -584,7 +584,7 @@
                       à partir de 200€
                       <br />
                       <br />
-                      -15% sur le total
+                      -5% sur le total de la mariée
                       <br />
                       <br />
                       <a href="/rendezVous"
@@ -603,7 +603,6 @@
 </template>
 
 <script>
-
 export default {
   data() {
     return {
@@ -655,6 +654,11 @@ h3 {
   width: 100%;
 }
 
+h3 {
+  margin: 15px;
+  font-family: "Bellota", cursive;
+  color: var(--gld);
+}
 #full {
   display: flex;
   flex-direction: column;
@@ -902,7 +906,7 @@ p {
 }
 @media screen and (max-width: 768px) {
   section#tarifs {
-  width: 100%;
-}
+    width: 100%;
+  }
 }
 </style>

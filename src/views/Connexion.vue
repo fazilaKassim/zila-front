@@ -218,10 +218,8 @@ hr {
 //   }
 // }
 @media screen and (max-width: 768px) {
-.connexion {
+  .connexion {
     width: 100%;
-
   }
-  
 }
 </style>

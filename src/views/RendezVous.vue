@@ -81,7 +81,7 @@
         />
         <label for="personne" class="form__label">Nombre de personne</label>
       </div>
-<!-- 
+      <!-- 
       <div class="form__group field">
         <label for="date" class="form__label">Date souhiatée</label>
         <input
@@ -107,7 +107,9 @@
         ></textarea>
       </div>
       <div class="btn-rdv">
-        <button class="btn ">Prendre rendez-vous</button>
+        <button class="btn">
+          <router-link to="/okValide">Prendre rendez-vous</router-link>
+        </button>
       </div>
     </form>
   </section>
@@ -156,9 +158,9 @@ p {
   font-family: "Times New Roman", Times, serif;
 }
 ::selection {
-  color:white ;
+  color: white;
   background-color: var(--gld);
-} 
+}
 #rdv {
   background: url("../assets/img/flower-background.jpg");
   height: auto;
@@ -271,7 +273,9 @@ textarea {
   margin: auto;
   outline: 0;
 }
-
+.btn a {
+  color: white;
+}
 .btn-rdv {
   display: flex;
   justify-content: center;
@@ -284,6 +288,5 @@ textarea {
     margin: 0;
     min-width: 380px;
   }
-  
 }
 </style>

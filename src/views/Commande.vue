@@ -1,15 +1,13 @@
 <template>
-   <div id="mention-bg">
-       <section id="mention">
-<h1>Mes commandes</h1>
-       </section>
-   </div>
+  <div id="mention-bg">
+    <section id="mention">
+      <h1>Mes commandes</h1>
+    </section>
+  </div>
 </template>
 
 <script>
-export default {
-
-}
+export default {};
 </script>
 
 <style scoped>
@@ -23,23 +21,20 @@ export default {
   background-size: cover;
   padding: 70px;
 }
-#mention{
-    width: 70%;
-    background: white;
-    margin: auto;
-    height: 80vh;
+#mention {
+  width: 70%;
+  background: white;
+  margin: auto;
+  height: 80vh;
 }
-h1{
-    color: black;
-    text-align: center;
-    padding: 40px;
-
+h1 {
+  color: black;
+  text-align: center;
+  padding: 40px;
 }
 @media screen and (max-width: 768px) {
   #mention {
     width: 100%;
-
   }
-  
 }
 </style>

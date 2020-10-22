@@ -1,14 +1,14 @@
 <template>
   <div id="boutique-bg">
-     
-
     <section class="products">
-      <h1>Produits de la catégorie : {{listeProduits.categorie}}</h1>
+      <h1>Produits de la catégorie : {{ listeProduits.categorie }}</h1>
       <!-- <h1 v-bind="titre">{{titre}}</h1> -->
       <article class="list-produit">
-        
-        <div v-for="(produit, i) in listeProduits.produits" :key="i" class="produit">
-       
+        <div
+          v-for="(produit, i) in listeProduits.produits"
+          :key="i"
+          class="produit"
+        >
           <figure class="produit">
             <img src="../assets/img/cadre.jpg" alt="" class="img-produit" />
             <figcaption>{{ produit.Nom }}</figcaption>
@@ -20,69 +20,67 @@
               Decouvrir <i class="fas fa-feather-alt"></i>
             </button>
           </figure>
-        </div> 
-      </article>  
+        </div>
+      </article>
     </section>
   </div>
 </template>
 
 <script>
 export default {
-    props : ["produitsParCateg"],
-    data(){
-        return {
-            // categories :this.produitsParCateg.categorie,
-            // produitss :this.produitsParCateg.produits,
-            // lala : Vue.util.extend({}, this.initialCounter)
-        }
+  props: ["produitsParCateg"],
+  data() {
+    return {
+      categories: this.produitsParCateg.categorie,
+      produitss: this.produitsParCateg.produits,
+      // lala : Vue.util.extend({}, this.initialCounter)
+    };
+  },
+
+  created() {
+    this.categorie = this.produitsParCateg.categorie;
+    this.produits = this.produitsParCateg.produits;
+  },
+
+  methods: {
+    getProducts() {
+      // console.log("PROPSSSSSS >>>>>>>>>>>>>>>>>><", categorie1);
+      const produits = this.$store.getters["produit/produits"]; // je récupère les produit du store
+      let categorie = this.$route.params.categorie; // je récupère le nom de la categ depuis l'url
+      const produitsFiltered = produits.filter(
+        (produit) => produit.Categorie === categorie
+      ); // je filtre les produit pour sortir uniquement ceux ayant la même categ que celle de l'url
+      console.log("Produits FILTRñ >>>>>> ", produitsFiltered);
+      return produitsFiltered;
     },
 
+    ajouterProduitPanier(produit) {
+      const produitPanier = {
+        idProduit: produit._id,
+        produit: produit,
+        prix: produit.Prix,
+        quantite: 1,
+      };
+      console.log("before adding panier ", produitPanier);
 
-
-    created(){
-        // this.categorie = this.produitsParCateg.categorie
-        // this.produits = this.produitsParCateg.produits
+      this.$store.dispatch("produit/ajouterProduit", produitPanier);
     },
-
-    methods : {
-        getProducts(){
-        
-            // console.log("PROPSSSSSS >>>>>>>>>>>>>>>>>><", categorie1);
-            const produits = this.$store.getters['produit/produits']
-            let categorie = this.$route.params.categorie;
-            const produitsFiltered = produits.filter(produit => produit.Categorie === categorie);
-            console.log("Produits FILTRñ >>>>>> ", produitsFiltered);
-            return produitsFiltered
-        },
-        ajouterProduitPanier(produit){
-          const produitPanier = {
-            idProduit : produit._id,
-            produit : produit,
-            prix : produit.Prix,
-            quantite : 1
-          }
-          console.log("before adding panier ",produitPanier)
-
-          this.$store.dispatch("produit/ajouterProduit", produitPanier);
-        }
-    },
-    computed: {
+  },
+  computed: {
     listeProduits() {
-        return {...this.produitsParCateg}
-  }
-    }
-//   computed: {
-//     cone() {
-//       return this.$store.state.produit.filter((produit) => categorie.cone);
-//     },
+      return { ...this.produitsParCateg };
+    },
+  },
+  //   computed: {
+  //     cone() {
+  //       return this.$store.state.produit.filter((produit) => categorie.cone);
+  //     },
 
-    
-//   },
+  //   },
 };
 </script>
 
 <style lang="scss" scoped>
-
 //boutique menu
 #boutique-bg {
   background: url("../assets/img/flower.jpg");
@@ -105,7 +103,7 @@ export default {
   background: white;
   // margin: auto;
   padding: 20px 10px 0 10px;
-  margin-top:20px ;
+  margin-top: 20px;
 }
 section.sous-menu {
   width: 80%;
@@ -226,10 +224,8 @@ div.produit:hover figure {
   filter: brightness(65%);
 }
 @media screen and (max-width: 768px) {
-.products{
+  .products {
     width: 100%;
-
   }
-  
 }
 </style>

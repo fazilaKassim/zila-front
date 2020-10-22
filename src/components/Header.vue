@@ -29,7 +29,7 @@
         <div class="icon-log">
           <!-- icon connexion et panier -->
           <ul class="icon two">
-            <li>
+            <li class="icon-go">
               <router-link v-if="!isSignedIn" to="/connexion">
                 <!-- v-if="!isSignedIn" -->
                 <img
@@ -38,26 +38,36 @@
                   class="icon flex-vertical"
               /></router-link>
             </li>
-              <li>
+            <li class="icon-go">
+              <router-link v-if="isSignedIn" to="/dashboard">
+                <!-- v-if="!isSignedIn" -->
+                <img
+                  src="../assets/img/profillogo.png"
+                  alt=""
+                  class="icon flex-vertical"
+              /></router-link>
+            </li>
+            <li class="icon-go">
               <router-link to="/connexion" v-if="isSignedIn">
                 <!-- v-if="!isSignedIn" -->
-                <img  @click="signout" 
+                <img
+                  @click="signout"
                   src="../assets/img/deconnexion.png"
                   alt=""
                   class="icon flex-vertical"
               /></router-link>
             </li>
 
-            <li>
-              <!-- <router-link  v-if="isSignedIn" to="/dashboard">
+            <!-- <li> -->
+            <!-- <router-link  v-if="isSignedIn" to="/dashboard">
                 <img
                   src="../assets/img/profillogo.png"
                   alt=""
                   class="icon flex-vertical"
               /></router-link> -->
-              <!-- panier -->
-            </li>
-            <li>
+            <!-- panier -->
+            <!-- </li> -->
+            <li class="panier-icon">
               <router-link to="/panier">
                 <img
                   src="../assets/img/panier.png"
@@ -92,6 +102,37 @@
             <li><router-link to="/galerie">Galerie</router-link></li>
             <li><router-link to="/tarifs">Tarifs</router-link></li>
             <li><router-link to="/rendezVous">Rendez-vous</router-link></li>
+
+            <li>
+              <router-link v-if="isSignedIn" to="/dashboard">
+                <!-- v-if="!isSignedIn" -->
+                <img
+                  src="../assets/img/profillogo.png"
+                  alt=""
+                  class="icon icon-connect flex-vertical"
+              /></router-link>
+            </li>
+
+            <li>
+              <router-link v-if="!isSignedIn" to="/connexion">
+                <!-- v-if="!isSignedIn" -->
+                <img
+                  src="../assets/img/profillogo.png"
+                  alt=""
+                  class="icon icon-connect flex-vertical"
+              /></router-link>
+            </li>
+
+            <li>
+              <router-link to="/connexion" v-if="isSignedIn">
+                <!-- v-if="!isSignedIn" -->
+                <img
+                  @click="signout"
+                  src="../assets/img/deconnexion.png"
+                  alt=""
+                  class="icon icon-connect flex-vertical"
+              /></router-link>
+            </li>
           </ul>
         </Slide>
       </div>
@@ -104,29 +145,24 @@ import vue from "vue";
 import auth from "@/auth";
 import { Slide } from "vue-burger-menu";
 
-
-
 export default {
-
   data() {
     return {
-  
       auth,
       isActive: false,
     };
   },
-   methods: {
+  methods: {
     signout() {
       auth.signout(this); //  on passe l'instance de vue à la fonction de déconnection
-    }
+    },
   },
-  
-computed: {
+
+  computed: {
     isSignedIn() {
       return Boolean(this.$store.getters["user/current"]);
     },
   },
-  
 
   components: {
     Slide, // Register your component
@@ -168,7 +204,9 @@ header {
   display: flex;
   flex-direction: row;
 }
-
+div.search {
+  display: none;
+}
 #head {
   display: flex;
   // flex-direction: row;
@@ -230,7 +268,7 @@ header {
   font-size: 36px;
   font-weight: 700;
   color: white;
-    display: flex;
+  display: flex;
   justify-content: center;
   align-items: center;
 }
@@ -329,7 +367,9 @@ ul.nav-links a:hover {
   div.navbar {
     display: none;
   }
-
+  .icon-go {
+    display: none;
+  }
   #menu-burger {
     display: inherit;
   }
@@ -398,5 +438,10 @@ ul.nav-links a:hover {
   //   font-weight: 700;
   //   color: white;
   // }
+
+  .icon-connect {
+    width: 80px;
+    height: auto;
+  }
 }
 </style>

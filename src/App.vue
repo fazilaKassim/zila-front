@@ -2,7 +2,10 @@
   <div id="app">
     <Header />
     <button class="reserve">
-      <router-link to="/rendezVous"><i class="fas fa-calendar-check"></i> <p class="hide"> Prendre RDV</p> </router-link>
+      <router-link to="/rendezVous"
+        ><i class="fas fa-calendar-check"></i>
+        <p class="hide">Prendre RDV</p>
+      </router-link>
     </button>
     <main id="main-content">
       <router-view />
@@ -44,21 +47,22 @@ i.fa-chevron-up {
   width: 30px;
   height: 30px;
   position: fixed;
-  bottom: 0;
-  right: 0;
-  margin: 15px;
+  // margin: 40px;
+  // margin-bottom: 150px;
+  bottom: 100px;
+  right: 40px;
   z-index: 15;
 }
-.reserve a{
+.reserve a {
   color: white;
-    font-size: 18px;
+  font-size: 18px;
 }
-p.hide{
+p.hide {
   display: none;
 }
 .reserve {
   position: fixed;
-  
+
   left: 0px;
   bottom: 0;
   margin: 10px;
@@ -66,29 +70,26 @@ p.hide{
   height: 35px;
   border-radius: 10px;
   background: black;
-font-family: 'Times New Roman';
+  font-family: "Times New Roman";
   border: none;
   font-size: 18px;
   outline: 0;
   cursor: pointer;
 }
-.reserve:hover{
+.reserve:hover {
   background: white;
   transform: rotate(90deg);
   width: 157px;
   left: -60px;
   content: "PRendre RDV";
-height: 37px;
-bottom: 65px;
+  height: 37px;
+  bottom: 65px;
   border: 2px solid var(--gld);
 }
-.reserve:hover a{
-color: var(--gld);
+.reserve:hover a {
+  color: var(--gld);
 }
-.reserve:hover p.hide{
+.reserve:hover p.hide {
   display: inherit;
 }
-
-
-
 </style>

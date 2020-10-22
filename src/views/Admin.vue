@@ -1,15 +1,13 @@
 <template>
-   <div id="admin-bg">
-       <section id="admin">
-<h1>Dashboard</h1>
-       </section>
-   </div>
+  <div id="admin-bg">
+    <section id="admin">
+      <h1>Dashboard</h1>
+    </section>
+  </div>
 </template>
 
 <script>
-export default {
-
-}
+export default {};
 </script>
 
 <style scoped>
@@ -23,23 +21,20 @@ export default {
   background-size: cover;
   padding: 70px;
 }
-#admin{
-    width: 70%;
-    background: white;
-    margin: auto;
-    height: 80vh;
+#admin {
+  width: 70%;
+  background: white;
+  margin: auto;
+  height: 80vh;
 }
-h1{
-    color: black;
-    text-align: center;
-    padding: 40px;
-
+h1 {
+  color: black;
+  text-align: center;
+  padding: 40px;
 }
 @media screen and (max-width: 768px) {
   #admin {
     width: 100%;
-
   }
-  
 }
 </style>

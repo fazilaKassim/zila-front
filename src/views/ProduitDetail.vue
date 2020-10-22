@@ -18,37 +18,35 @@
 </template>
 
 <script>
-
 export default {
-     data(){
-          return {
-               produits: [],
-               produitsParCateg : {
-                   categorie : "",
-                   produits : []
-               },
-          }
-     },
-  components : {
-       
+  data() {
+    return {
+      produits: [],
+      produitsParCateg: {
+        categorie: "",
+        produits: [],
+      },
+    };
   },
-  async created(){
+  components: {},
+  async created() {
     await this.$store.dispatch("produit/getProduits");
     const produits = this.$store.getters["produit/produits"];
     this.produits = produits;
     this.selectCategorie("henne");
-
   },
 
-  methods : {
-      selectCategorie(categ){
-          this.produitsParCateg = {
-              categorie : categ,
-              produits : this.produits.filter(produit => produit.Categorie === categ)
-          }
-      }
-  }
-}
+  methods: {
+    selectCategorie(categ) {
+      this.produitsParCateg = {
+        categorie: categ,
+        produits: this.produits.filter(
+          (produit) => produit.Categorie === categ
+        ),
+      };
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>
@@ -70,10 +68,8 @@ export default {
   margin: auto;
 }
 @media screen and (max-width: 768px) {
-   .produit-detail{
+  .produit-detail {
     width: 100%;
-
   }
-  
 }
 </style>

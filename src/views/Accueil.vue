@@ -9,12 +9,13 @@
         pause-on-hover="pause-on-hover"
         pause-on-dots-hover="pause-on-dots-hover"
         autoplay="autoplay"
-        ><img class="slide" src="../assets/img/slide1.png"/><img
-          class="slide"
-          src="../assets/img/slide3.jpg"/><img
+      >
+        <img class="slide" src="../assets/img/slide3.jpg" /><img
           class="slide"
           src="../assets/img/slide4.jpg"
-      /></agile>
+        />
+        <!-- <img class="slide" src="../assets/img/slide1.png"/> -->
+      </agile>
     </div>
     <div id="accueil-baground">
       <div id="content-accueil">
@@ -30,7 +31,7 @@
               </a>
             </li>
             <li class="menu">
-              <a href="/boutique/objets"  target="blank">
+              <a href="/boutique/objets" target="blank">
                 <figure>
                   <img src="../assets/img/cadre.jpg" alt="" class="menu" />
                   <figcaption>Objets personnalisé</figcaption>
@@ -38,7 +39,7 @@
               </a>
             </li>
             <li class="menu">
-              <a href="/boutique/lettre"  target="blank">
+              <a href="/boutique/lettre" target="blank">
                 <figure>
                   <img src="../assets/img/bougie.jpeg" alt="" class="menu" />
                   <figcaption>Lettre Fleurie</figcaption>
@@ -46,7 +47,7 @@
               </a>
             </li>
             <li class="menu">
-              <a href="/boutique/bouquet"  target="blank">
+              <a href="/boutique/bouquet" target="blank">
                 <figure>
                   <img src="../assets/img/bouquet.jpg" alt="" class="menu" />
                   <figcaption>Bouquet</figcaption>
@@ -65,16 +66,14 @@
               <li>Déplacement possible en Ile-de-France</li>
               <li>Nous utilisons des produit de haute qualité 100% naturel</li>
               <li>
-               
-                  <router-link to="/rendezVous"> <button class="reserver">Reservez</button></router-link>
-                
+                <router-link to="/rendezVous">
+                  <button class="reserver">Reservez</button></router-link
+                >
               </li>
             </ul>
           </article>
           <article class="video">
-            <video controls muted>
-              <source src="assets/video/zila Henné.mp4" type="video/mp4" />
-            </video>
+            <img src="../assets/img/slide1.png" class="slide2" alt="" />
           </article>
         </section>
 
@@ -124,21 +123,24 @@
             <p>
               Zila henne vous propose des tatouages éphémère au henné naturel.
               Les produits utilisé sont 100% naturel et certifié.
-              <br><br> Vous pouvez faire appel à nous pour toute vos occasions, seule ou en petit
-              groupe, nous assurerons votre prise en charge. 
-              <br><br>
-               Les déplacements sont possible sur paris et en Ile-de-France.
-               <br>
-               ​
+              <br /><br />
+              Vous pouvez faire appel à nous pour toute vos occasions, seule ou
+              en petit groupe, nous assurerons votre prise en charge.
+              <br /><br />
+              Les déplacements sont possible sur paris et en Ile-de-France.
+              <br />
+              ​
             </p>
           </article>
-          <article>     <p>
-    Nous vous proposons aussi la vente de produit personnalisables.
-              <br><br> 
-              Toutes nos créations sont faite à la main.<br><br>
-          Vouos avez egalement la possibilité dachter du henné en poudre ou des cones de henné pret à l'emploi.
-               ​
-            </p> </article>
+          <article>
+            <p>
+              Nous vous proposons aussi la vente de produit personnalisables.
+              <br /><br />
+              Toutes nos créations sont faite à la main.<br /><br />
+              Vouos avez egalement la possibilité dachter du henné en poudre ou
+              des cones de henné pret à l'emploi. ​
+            </p>
+          </article>
         </section>
         <section id="livraison">
           <ul class="livraisons">
@@ -217,22 +219,30 @@ export default {
   padding: 0;
   box-sizing: border-box;
 }
-::-webkit-scrollbar{
+::-webkit-scrollbar {
   width: 13px;
 }
 ::-webkit-scrollbar-thumb {
-
-border:1px solid var(--gld);
-border-radius: 10px;
-background: linear-gradient(90deg,rgba(200,156,98,1)  0%,  rgb(221, 183, 132)30%, rgba(176,126,58,1) 67%, rgba(131,94,44,1) 100%);}
-::-webkit-scrollbar-track {background: black}
+  border: 1px solid var(--gld);
+  border-radius: 10px;
+  background: linear-gradient(
+    90deg,
+    rgba(200, 156, 98, 1) 0%,
+    rgb(221, 183, 132) 30%,
+    rgba(176, 126, 58, 1) 67%,
+    rgba(131, 94, 44, 1) 100%
+  );
+}
+::-webkit-scrollbar-track {
+  background: black;
+}
 :root {
   --gld: rgb(200, 156, 98);
 }
 ::selection {
   color: var(--gld);
   background-color: black;
-} 
+}
 body {
   overflow-x: hidden;
   width: 100%;
@@ -240,12 +250,14 @@ body {
   max-width: 100%;
 }
 
-.flex{
+.flex {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  
+}
+.slide2 {
+  border-radius: 10px;
 }
 .row {
   margin: 0;
@@ -303,7 +315,7 @@ h2 {
 
 .slide {
   display: block;
-  height: 500px;
+  height: 65vh;
   -o-object-fit: cover;
   object-fit: cover;
   width: 100%;
@@ -392,7 +404,6 @@ img.menu {
   border-radius: 50%;
 }
 
-
 /* newsletter */
 #newsletter {
   width: 100%;
@@ -478,22 +489,21 @@ input.newsletter {
 }
 
 //info
-section#description{
-    background: rgba(0, 0, 0, 0.486);
-    // height: 300px;
-    padding: 50px;
-    font-size: 20px;
-    
-    color: white;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    text-shadow: 1px 1px 2px var(--gld);
+section#description {
+  background: rgba(0, 0, 0, 0.486);
+  // height: 300px;
+  padding: 50px;
+  font-size: 20px;
 
+  color: white;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  text-shadow: 1px 1px 2px var(--gld);
 }
-section#description article{
+section#description article {
   width: 40%;
   margin: auto;
   min-width: 400px;
@@ -536,6 +546,4 @@ ul.livraisons li figure {
   justify-content: center;
   align-items: center;
 }
-
-
 </style>

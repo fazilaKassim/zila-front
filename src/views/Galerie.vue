@@ -52,15 +52,16 @@ export default {
 </script>
 
 <style lang="scss">
-//modal modif 
-.blueimp-gallery>.next, .blueimp-gallery>.prev {
+//modal modif
+.blueimp-gallery > .next,
+.blueimp-gallery > .prev {
   color: var(--gld);
   border: none;
   opacity: inherit;
 }
 
-a.close:hover{
-    color: inherit;
+a.close:hover {
+  color: inherit;
 }
 //
 
@@ -107,10 +108,10 @@ article.images {
 }
 @media screen and (max-width: 768px) {
   section#galerie {
-  width: 100%;
-}
-article.images{
-      padding: 10px;
-}
+    width: 100%;
+  }
+  article.images {
+    padding: 10px;
+  }
 }
 </style>

@@ -20,33 +20,25 @@
       </article>
 
       <article class="profil-edit">
-        <form method="post" action="" class="form">
+        <form class="form" @submit.prevent="updateUser()">
           <h2 class="title">
             <i class="fas fa-user-cog"></i> Mettre à jour votre profil
           </h2>
           <div class="flex-label">
-            <label for="email" class="label">Email</label>
+            <label for="email" class="label">{{ currentUser.email }}</label>
             <input
               id="email"
               type="email"
               class="input"
+              @keyup="(e) => handleInput(e, 'email')"
               v-model="currentUser.email"
               name="email"
             />
           </div>
-
           <div class="flex-label">
-            <label for="input-ville" class="label">Ville</label>
-            <input
-              id="input-ville"
-              type="text"
-              class="input"
-              v-model="currentUser.coordonnees.ville"
-              name="ville"
-            />
-          </div>
-          <div class="flex-label">
-            <label for="input-codePostale" class="label">Code postal</label>
+            <label for="input-codePostale" class="label">{{
+              currentUser.coordonnees.codePostal
+            }}</label>
             <input
               id="input-codePostale"
               type="text"
@@ -55,10 +47,23 @@
               name="codePostale"
             />
           </div>
-          <button class="btn">ok</button>
+          <div class="flex-label">
+            <label for="input-ville" class="label">{{
+              currentUser.coordonnees.ville
+            }}</label>
+            <input
+              id="input-ville"
+              type="text"
+              class="input"
+              @keyup="(e) => handleInput(e, 'coordonnees.ville')"
+              v-model="currentUser.coordonnees.ville"
+              name="ville"
+            />
+          </div>
+          <button class="btn" @click.prevent="">ok</button>
         </form>
 
-        <form method="post" action="" class="form">
+        <form class="form">
           <h2 class="title">Mettre à jour votre mdp</h2>
           <div class="flex-label">
             <label for="input-old-password" class="label"
@@ -86,7 +91,7 @@
             />
           </div>
 
-          <button class="btn">ok</button>
+          <button class="btn" @click.prevent="">ok</button>
         </form>
       </article>
     </section>
@@ -95,6 +100,37 @@
 
 <script>
 export default {
+  data() {
+    return {
+      isEditMode: false,
+      updatedUser: {
+        email: "",
+        coordonnees: {
+          adresse: "",
+          complementAdress: "",
+          codePostal: "",
+          ville: "",
+        },
+      },
+    };
+  },
+  methods: {
+    handleInput(evt, key) {
+      this.updatedUser[key] = evt.target.textContent;
+    },
+
+    updateUser() {
+      const payload = { _id: this.$props.currentUser._id };
+      for (let prop in this.updatedUser) {
+        if (this.updatedUser[prop]) {
+          payload[prop] = this.updatedUser[prop];
+        }
+      }
+      console.log(payload);
+      this.$store.dispatch("user/update", payload);
+    },
+  },
+
   computed: {
     created() {
       console.log(this.$store.getters["user/current"]);
@@ -103,9 +139,7 @@ export default {
       const userInfos = this.$store.getters["user/current"]; // récupère l'user connecté depuis le store/user
       return userInfos; // retourne les infos, desormais accessible dans le component sous le nom currentUser
     },
-    // methode: {
-
-    // }
+    props: ["currentUser"],
   },
 };
 </script>
@@ -194,22 +228,19 @@ h2 {
 }
 
 @media screen and (max-width: 768px) {
-#dash-bg{
-  padding: 30px 0;
+  #dash-bg {
+    padding: 30px 0;
+  }
+  #dash {
+    width: 100%;
+    min-width: 300px;
+  }
 
-}
-#dash{
-  width: 100%;
-  min-width: 300px;
-}
-
-.info-user{
-  width: 100%;
-}
-.profil-edit{
-  width: 100%;
-}
-
-
+  .info-user {
+    width: 100%;
+  }
+  .profil-edit {
+    width: 100%;
+  }
 }
 </style>

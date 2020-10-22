@@ -9,19 +9,22 @@
 
         <router-link to="/condition">Condition général de vente</router-link>
         <router-link to="/mentionlegal">Mention légales</router-link>
-        <a href="https://zilahenneabout.wordpress.com/nos-produits/"
+        <a
+          href="https://zilahenneabout.wordpress.com/nos-produits/"
+          target="_blank"
           >Nos produits</a
         >
-        <router-link to="https://zilahenneabout.wordpress.com/about/"
-          >L'histoire du henné</router-link
+        <a href="https://zilahenneabout.wordpress.com/about/" target="_blank"
+          >L'histoire du henné</a
+        >
         >
       </article>
       <article class="footer footer-menu">
-        <h2 class="footer-titre">PLAN DU SITE</h2>
-        <router-link to="#">Boutique</router-link>
-        <router-link to="#">Galerie</router-link>
-        <router-link to="#">Tarifs</router-link>
-        <router-link to="#">Rendez-vous</router-link>
+        <h2 class="footer-titre" target="_blank">PLAN DU SITE</h2>
+        <router-link to="/boutique" target="_blank">Boutique</router-link>
+        <router-link to="/galerie" target="_blank">Galerie</router-link>
+        <router-link to="/tarifs" target="_blank"> Tarifs</router-link>
+        <router-link to="/rendezVous" target="_blank">Rendez-vous</router-link>
       </article>
       <article class="footer footer-rs">
         <a href="https://www.instagram.com/zilahenne/" target="_blank"
@@ -61,7 +64,6 @@ footer {
   justify-content: center;
   align-items: center;
   width: 100%;
-
 }
 h2 {
   color: rgb(200, 156, 98);
@@ -122,8 +124,8 @@ article.footer a {
   margin: 10px;
 }
 
-@media screen and (max-width:600px ) {
-  .footer-logo{
+@media screen and (max-width: 600px) {
+  .footer-logo {
     display: none;
   }
   .form {

@@ -8,7 +8,6 @@
           type="input"
           class="form__field"
           placeholder="Nom"
-       
           id="nom"
           v-model="user.nom"
           required
@@ -22,20 +21,18 @@
           class="form__field"
           placeholder="Prenom"
           id="prenom"
-      
           v-model="user.prenom"
           required
         />
         <label for="prenom" class="form__label">Prenom</label>
       </div>
 
-   <div class="form__group field">
+      <div class="form__group field">
         <input
           type="email"
           class="form__field"
           placeholder="Email"
           id="email"
-      
           v-model="user.email"
           required
         />
@@ -48,7 +45,6 @@
           class="form__field"
           placeholder="Telephone"
           id="telephone"
-    
           v-model="user.telephone"
           required
         />
@@ -75,7 +71,6 @@
           class="form__field"
           placeholder="Mot de passe"
           id="password"
-     
           v-model="user.password"
           required
         />
@@ -124,10 +119,9 @@
       <div class="form__group field">
         <input
           type="number"
-            min="1"
+          min="1"
           class="form__field"
           placeholder="Code postal"
-
           id="codePostal"
           v-model="user.coordonnees.codePostal"
           required
@@ -141,7 +135,6 @@
           class="form__field"
           placeholder="Ville"
           id="ville"
-      
           v-model="user.coordonnees.ville"
           required
         />
@@ -149,9 +142,11 @@
       </div>
 
       <div class="btn-rdv">
-        <button class="btn" @click.prevent="register" type="submit">
-          S'inscrire
-        </button>
+        
+          <button class="btn" @click.prevent="register" type="submit" >
+            s'inscrire
+          </button>
+      
       </div>
     </form>
   </div>
@@ -167,9 +162,9 @@ export default {
         prenom: "",
         email: "",
         telephone: "",
-       password: "",
+        password: "",
         confirmationmdp: "",
-        dateDeNaissance:"",
+        dateDeNaissance: "",
         coordonnees: {
           adresse: "",
           complementAdress: "",
@@ -181,7 +176,8 @@ export default {
   },
   methods: {
     register() {
-      this.$store.dispatch("user/signup", this.user); // on utilise le store 
+      this.$store.dispatch("user/signup", this.user); // on utilise le store
+      this.$router.push("/connexion")
       // console.log(this.user);
       // axios
       //   .post(process.env.VUE_APP_BACKEND_URL + "/users/inscription", {
@@ -332,18 +328,16 @@ textarea {
   border: 1px solid rgb(136, 101, 48);
   margin: auto;
   outline: 0;
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .btn-rdv {
   display: flex;
   justify-content: center;
   align-items: center;
-
 }
 
 .btn-rdv:hover {
- 
   cursor: pointer;
 }
 @media screen and (max-width: 768px) {
