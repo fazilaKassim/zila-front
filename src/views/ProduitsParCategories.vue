@@ -16,9 +16,11 @@
             <button class="btn" @click="ajouterProduitPanier(produit)">
               Acheter <i class="fas fa-cart-plus"></i>
             </button>
-            <button class="btn btn2">
-              Decouvrir <i class="fas fa-feather-alt"></i>
-            </button>
+            <router-link :to="'/produit/' + produit._id">
+              <button class="btn btn2">
+                Decouvrir <i class="fas fa-feather-alt"></i>
+              </button>
+            </router-link>
           </figure>
         </div>
       </article>

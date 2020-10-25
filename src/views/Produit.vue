@@ -9,10 +9,11 @@
         </article>
 
         <article class="info">
-          <h1>nom produit</h1>
-          <p>description du produit lorem ipsum</p>
-          <h3>Prix : 43€</h3>
-          <button class="btn-produit">
+          <h1>{{produit.Nom }}</h1>
+          <p>{{produit.Description }}</p>
+          <h3>Prix : {{produit.Prix }} €</h3>
+          <router-link></router-link>
+          <button class="btn-produit" @click="ajouterProduitPanier(produit)">
             Ajouter le produit au panier <i class="fas fa-cart-plus"></i>
           </button>
           <div class="social">
@@ -33,10 +34,11 @@ import { Facebook } from "vue-socialmedia-share";
 import { WhatsApp } from "vue-socialmedia-share";
 import { Pinterest } from "vue-socialmedia-share";
 import { Google } from "vue-socialmedia-share";
+import { apiHandler } from "../api/handler"
 
 import { Email } from "vue-socialmedia-share";
 // usage in local component
-
+const handler = apiHandler();
 export default {
   components: {
     Facebook,
@@ -45,6 +47,32 @@ export default {
     Google,
     Email,
   },
+
+  data(){
+    return {
+      produit : {}
+    }
+  },
+
+  methods : {
+    ajouterProduitPanier(produit) {
+      const produitPanier = {
+        idProduit: produit._id,
+        produit: produit,
+        prix: produit.Prix,
+        quantite: 1,
+      };
+      console.log("before adding panier ", produitPanier);
+
+      this.$store.dispatch("produit/ajouterProduit", produitPanier);
+    },
+  },
+
+  async created(){
+    console.log("IDDDDDDDD", this.$route.params.id)
+    const produit = await handler.get("/produit/" + this.$route.params.id);
+    this.produit = produit.data
+  }
 };
 </script>
 

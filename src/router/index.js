@@ -17,7 +17,7 @@ import NotFound from "../views/NotFound.vue";
 import Dashboard from "../views/Dashboard.vue";
 import Commande from "../views/Commande.vue";
 import ProduitsParCategories from "../views/ProduitsParCategories.vue";
-import ProduitDetail from "../views/ProduitDetail.vue";
+
 import Produit from "../views/Produit.vue";
 import Panier from "../views/Panier.vue";
 import Paiement from "../views/Paiement.vue";
@@ -54,10 +54,19 @@ const routes = [
   },
 
   // {
-  //   path: "/produitDetail",
-  //   name: "ProduitDetail",
-  //   component: ProduitDetail,
+  //     path: "/produitDetail/:",
+  //     name: "ProduitDetail",
+  //     component: ProduitDetail,
   // },
+
+  {
+    // navigateur /produit/lala
+    path: "/produit/:id",
+    name: "Produit",
+    component: Produit,
+  },
+
+
   {
     path: "/galerie",
     name: "Galerie",
@@ -137,11 +146,7 @@ const routes = [
     name: "Commande",
     component: Commande,
   },
-  {
-    path: "/produit",
-    name: "Produit",
-    component: Produit,
-  },
+
   {
     path: "/panier",
     name: "Panier",

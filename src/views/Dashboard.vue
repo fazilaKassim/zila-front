@@ -20,53 +20,53 @@
       </article>
 
       <article class="profil-edit">
-        <form class="form" @submit.prevent="updateUser()">
+        <!-- <form class="form" @submit.prevent="updateUser()">
           <h2 class="title">
             <i class="fas fa-user-cog"></i> Mettre à jour votre profil
           </h2>
           <div class="flex-label">
-            <label for="email" class="label">{{ currentUser.email }}</label>
+            <label for="email" class="label">{{ updatedUser.email }}</label>
             <input
               id="email"
               type="email"
               class="input"
               @keyup="(e) => handleInput(e, 'email')"
-              v-model="currentUser.email"
+              v-model="updatedUser.email"
               name="email"
             />
           </div>
           <div class="flex-label">
             <label for="input-codePostale" class="label">{{
-              currentUser.coordonnees.codePostal
+              updatedUser.coordonnees.codePostal
             }}</label>
             <input
               id="input-codePostale"
               type="text"
               class="input"
-              v-model="currentUser.coordonnees.codePostal"
+              v-model="updatedUser.coordonnees.codePostal"
               name="codePostale"
             />
           </div>
           <div class="flex-label">
             <label for="input-ville" class="label">{{
-              currentUser.coordonnees.ville
+              updatedUser.coordonnees.ville
             }}</label>
             <input
               id="input-ville"
               type="text"
               class="input"
               @keyup="(e) => handleInput(e, 'coordonnees.ville')"
-              v-model="currentUser.coordonnees.ville"
+              v-model="updatedUser.coordonnees.ville"
               name="ville"
             />
           </div>
           <button class="btn" @click.prevent="">ok</button>
-        </form>
+        </form> -->
 
         <form class="form">
           <h2 class="title">Mettre à jour votre mdp</h2>
           <div class="flex-label">
-            <label for="input-old-password" class="label"
+            <!-- <label for="input-old-password" class="label"
               >ancien mot de passe</label
             >
             <div class="flex-label">
@@ -76,7 +76,7 @@
                 class="input"
                 name="oldPassword"
               />
-            </div>
+            </div> -->
             <div class="flex-label">
               <label for="input-password" class="label"
                 >nouveau mot de passe</label
@@ -88,10 +88,11 @@
               type="password"
               class="input"
               name="password"
+              v-model="nouveauMotDePasse"
             />
           </div>
 
-          <button class="btn" @click.prevent="">ok</button>
+          <button class="btn" @click.prevent="updatedMotDePasse()">ok</button>
         </form>
       </article>
     </section>
@@ -99,19 +100,15 @@
 </template>
 
 <script>
+import { apiHandler } from '../api/handler';
+
+const handler = apiHandler();
 export default {
   data() {
     return {
       isEditMode: false,
-      updatedUser: {
-        email: "",
-        coordonnees: {
-          adresse: "",
-          complementAdress: "",
-          codePostal: "",
-          ville: "",
-        },
-      },
+      updatedUser: {},
+      nouveauMotDePasse : null
     };
   },
   methods: {
@@ -129,6 +126,12 @@ export default {
       console.log(payload);
       this.$store.dispatch("user/update", payload);
     },
+
+    async updatedMotDePasse(){
+      const currentUserId =  this.$store.getters["user/current"]._id
+      await handler.patch("/users/updateMotDePasse/" + currentUserId, {password : this.nouveauMotDePasse})
+
+    }
   },
 
   computed: {
@@ -137,6 +140,7 @@ export default {
     },
     currentUser() {
       const userInfos = this.$store.getters["user/current"]; // récupère l'user connecté depuis le store/user
+      // const updateUser = userInfos;
       return userInfos; // retourne les infos, desormais accessible dans le component sous le nom currentUser
     },
     props: ["currentUser"],
